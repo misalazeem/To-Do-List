@@ -23,17 +23,17 @@ body {
 }
 
 .container .row:nth-child(3) {
-    background-color: white;
-    border-bottom: none;
-    width: 95%;
-    padding: 0;
+  background-color: white;
+  border-bottom: none;
+  width: 95%;
+  padding: 0;
 }
 
 .container .row:last-child {
-    background-color: white;
-    border-bottom: none;
-    width: 95%;
-    padding:0px 0;
+  background-color: white;
+  border-bottom: none;
+  width: 95%;
+  padding: 0 0;
 }
 
 .row input {
@@ -53,9 +53,8 @@ body {
 .currenttask {
   display: flex;
   justify-content: flex-start;
-  padding: 0 10px;
   align-items: center;
-  padding: 10px 0;  
+  padding: 10px 10px;
 }
 
 .task-container input {
@@ -64,11 +63,11 @@ body {
 }
 
 .row .clear-button {
-    width: 100%;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    border-radius: 0;
-    border: none;
-    color: #595959;
-    border-bottom: none;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  border-radius: 0;
+  border: none;
+  color: #595959;
+  border-bottom: none;
 }
