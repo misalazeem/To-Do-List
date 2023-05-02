@@ -1,0 +1,74 @@
+body {
+  background-color: #d3d3d3;
+  margin: 0 10%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  margin-top: 100px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.28) 0 3px 8px;
+  padding: 30px 0;
+}
+
+.container > .row {
+  background-color: white;
+  border-bottom: 0.5px solid #d3d3d3;
+  width: 95%;
+  padding: 10px 0;
+}
+
+.container .row:nth-child(3) {
+    background-color: white;
+    border-bottom: none;
+    width: 95%;
+    padding: 0;
+}
+
+.container .row:last-child {
+    background-color: white;
+    border-bottom: none;
+    width: 95%;
+    padding:0px 0;
+}
+
+.row input {
+  outline: none;
+  margin: 0;
+  border: none;
+  width: 100%;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 0.5px solid #d3d3d3;
+}
+
+.currenttask {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 10px;
+  align-items: center;
+  padding: 10px 0;  
+}
+
+.task-container input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.row .clear-button {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 0;
+    border: none;
+    color: #595959;
+    border-bottom: none;
+}
