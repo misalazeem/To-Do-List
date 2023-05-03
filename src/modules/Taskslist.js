@@ -48,7 +48,6 @@ class TaskList {
   }
 
   removeTask(removeindex) {
-    console.log(removeindex);
     this.tasklist.splice(removeindex, 1);
     let count = 1;
     this.tasklist.forEach((task) => {
