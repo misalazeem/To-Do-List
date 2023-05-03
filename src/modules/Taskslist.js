@@ -32,6 +32,7 @@ class TaskList {
       containertask.setAttribute('class', 'task-container');
       tasklabel.setAttribute('class', 'currenttask');
       taskinput.setAttribute('type', 'checkbox');
+      taskinput.setAttribute('class', 'check-box');
       taskdescription.setAttribute('type', 'input');
       taskdescription.setAttribute('class', 'taskfield');
       trashicon.setAttribute('class', 'fa-solid fa-trash-can delete-icon');
@@ -47,6 +48,7 @@ class TaskList {
   }
 
   removeTask(removeindex) {
+    console.log(removeindex);
     this.tasklist.splice(removeindex, 1);
     let count = 1;
     this.tasklist.forEach((task) => {
@@ -60,6 +62,10 @@ class TaskList {
 
   updateDescription(description, index) {
     this.tasklist[index].description = description.value;
+  }
+
+  updateStatus(index, value) {
+    this.tasklist[index].completed = value;
   }
 }
 export default TaskList;
