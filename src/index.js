@@ -7,36 +7,31 @@ function onPageLoad() {
   tasklist.loadTasks();
   if (localStorage) {
     const localStorageItem = localStorage.getItem('tasklist');
-    console.log(JSON.parse(localStorageItem));
     tasklist.readTasks(JSON.parse(localStorageItem));
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   window.onload = onPageLoad();
-  
+
   window.addEventListener('beforeunload', () => {
     localStorage.setItem('tasklist', JSON.stringify(tasklist));
   });
 
   document.querySelector('#addtask').addEventListener('click', () => {
-    const value = document.querySelector('#taskdescription').value;
-    if (value !== '') {
+    if (document.querySelector('#taskdescription').value !== '') {
       const index = tasklist.tasklist.length;
-      tasklist.addTask(value, false, index);
+      tasklist.addTask(document.querySelector('#taskdescription').value, false, index);
       document.querySelector('#taskdescription').value = '';
-      console.log(tasklist);
     }
   });
 
   document.addEventListener('keyup', (event) => {
     if(event.key === 'Enter') {
-      const value = document.querySelector('#taskdescription').value;
-      if (value !== '') {
+      if (document.querySelector('#taskdescription').value !== '') {
         const index = tasklist.tasklist.length;
-        tasklist.addTask(value, false, index);
+        tasklist.addTask(document.querySelector('#taskdescription').value, false, index);
         document.querySelector('#taskdescription').value = '';
-        console.log(tasklist);
       }
     }
   });

@@ -1,11 +1,11 @@
 import Tasks from './tasks.js';
 
 class TaskList {
-  constructor (object = []) {
+  constructor(object = []) {
     this.tasklist = object;
   }
 
-  addTask(description, completed,index) {
+  addTask(description, completed, index) {
     const Task = new Tasks(description, completed, index);
     this.tasklist.push(Task);
     const tasks = document.querySelector('.tasks');
@@ -35,7 +35,7 @@ class TaskList {
       taskdescription.setAttribute('type', 'input');
       taskdescription.setAttribute('class', 'taskfield');
       trashicon.setAttribute('class', 'fa-solid fa-trash-can delete-icon');
-      trashicon.setAttribute('id', 'removetask'+task.index);
+      trashicon.setAttribute('id', `removetask${task.index}`);
       taskdescription.value = task.description;
       taskinput.checked = task.completed;
       tasklabel.appendChild(taskinput);
@@ -51,7 +51,7 @@ class TaskList {
     let count = 1;
     this.tasklist.forEach((task) => {
       task.index = count;
-      count++;
+      count += 1;
     });
     const tasks = document.querySelector('.tasks');
     tasks.innerHTML = '';
@@ -59,12 +59,7 @@ class TaskList {
   }
 
   updateDescription(description, index) {
-    console.log(index);
-    console.log(description.value);
-    console.log(this.tasklist[index].description);
     this.tasklist[index].description = description.value;
   }
-
 }
-
 export default TaskList;
