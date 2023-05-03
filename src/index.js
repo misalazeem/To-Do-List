@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('keyup', (event) => {
-    if(event.key === 'Enter') {
+    if (event.key === 'Enter') {
       if (document.querySelector('#taskdescription').value !== '') {
         const index = tasklist.tasklist.length;
         tasklist.addTask(document.querySelector('#taskdescription').value, false, index);
@@ -39,22 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (event) => {
     const icons = document.querySelectorAll('.delete-icon');
     icons.forEach((button, index) => {
-      if(event.target === button) {
+      if (event.target === button) {
         tasklist.removeTask(index);
       }
     });
   });
 
   document.addEventListener('change', (event) => {
-    if(event.target.matches('.taskfield')) {
+    if (event.target.matches('.taskfield')) {
       const alltasks = document.querySelectorAll('.taskfield');
       alltasks.forEach((description, index) => {
-        if(event.target === description) {
-         tasklist.updateDescription(description, index);
+        if (event.target === description) {
+          tasklist.updateDescription(description, index);
         }
       });
     }
   });
-
-
 });
