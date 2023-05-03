@@ -1,37 +1,58 @@
 import './style.css';
+import TaskList from './modules/Taskslist.js';
 
-const tasklist = [
-  {
-    description: 'Cook Food',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Study Time',
-    completed: false,
-    index: 1,
-  },
-];
+const tasklist = new TaskList();
 
-const loadTasks = () => {
-  const tasks = document.querySelector('.tasks');
-  tasklist.forEach((task) => {
-    const containertask = document.createElement('div');
-    const tasklabel = document.createElement('label');
-    const taskinput = document.createElement('input');
-    containertask.setAttribute('class', 'task-container');
-    tasklabel.setAttribute('class', 'currenttask');
-    taskinput.setAttribute('type', 'checkbox');
-    taskinput.checked = task.completed;
-    tasklabel.appendChild(taskinput);
-    tasklabel.appendChild(document.createTextNode(task.description));
-    containertask.appendChild(tasklabel);
-    tasks.appendChild(containertask);
+function onPageLoad() {
+  tasklist.loadTasks();
+  if (localStorage) {
+    const localStorageItem = localStorage.getItem('tasklist');
+    tasklist.readTasks(JSON.parse(localStorageItem));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.onload = onPageLoad();
+
+  window.addEventListener('beforeunload', () => {
+    localStorage.setItem('tasklist', JSON.stringify(tasklist));
   });
-};
 
-const onPageLoad = () => {
-  loadTasks();
-};
+  document.querySelector('#addtask').addEventListener('click', () => {
+    if (document.querySelector('#taskdescription').value !== '') {
+      const index = tasklist.tasklist.length;
+      tasklist.addTask(document.querySelector('#taskdescription').value, false, index);
+      document.querySelector('#taskdescription').value = '';
+    }
+  });
 
-window.onload = onPageLoad();
+  document.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+      if (document.querySelector('#taskdescription').value !== '') {
+        const index = tasklist.tasklist.length;
+        tasklist.addTask(document.querySelector('#taskdescription').value, false, index);
+        document.querySelector('#taskdescription').value = '';
+      }
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    const icons = document.querySelectorAll('.delete-icon');
+    icons.forEach((button, index) => {
+      if (event.target === button) {
+        tasklist.removeTask(index);
+      }
+    });
+  });
+
+  document.addEventListener('change', (event) => {
+    if (event.target.matches('.taskfield')) {
+      const alltasks = document.querySelectorAll('.taskfield');
+      alltasks.forEach((description, index) => {
+        if (event.target === description) {
+          tasklist.updateDescription(description, index);
+        }
+      });
+    }
+  });
+});
