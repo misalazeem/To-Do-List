@@ -139,7 +139,7 @@ Example command:
 
 ### Deployment
 
-- Live Preview not available
+- <a href="https://misalazeem.github.io/To-Do-List/">Click here to view live deployment</a>
 
 <!--
 Example:
