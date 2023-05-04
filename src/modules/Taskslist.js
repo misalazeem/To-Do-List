@@ -14,7 +14,7 @@ class TaskList {
   }
 
   readTasks(listtask = []) {
-      if (listtask !== null) {
+    if (listtask !== null) {
       let index = 1;
       listtask.tasklist.forEach((task) => {
         this.addTask(task.description, task.completed, index);
