@@ -54,5 +54,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+
+    if (event.target.matches('.check-box')) {
+      const allcheckboxes = document.querySelectorAll('.check-box');
+      allcheckboxes.forEach((status, index) => {
+        if (event.target === status) {
+          tasklist.updateStatus(index, status.checked);
+        }
+      });
+    }
+  });
+
+  document.querySelector('.clear-button').addEventListener('click', () => {
+    for (let i = 0; i < tasklist.tasklist.length; i += 1) {
+      if (tasklist.tasklist[i].completed) {
+        tasklist.removeTask(i);
+        i -= 1;
+      }
+    }
   });
 });

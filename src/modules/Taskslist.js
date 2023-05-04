@@ -14,11 +14,13 @@ class TaskList {
   }
 
   readTasks(listtask = []) {
-    let index = 1;
-    listtask.tasklist.forEach((task) => {
-      this.addTask(task.description, task.completed, index);
-      index += 1;
-    });
+    if (listtask !== null) {
+      let index = 1;
+      listtask.tasklist.forEach((task) => {
+        this.addTask(task.description, task.completed, index);
+        index += 1;
+      });
+    }
   }
 
   loadTasks() {
@@ -32,6 +34,7 @@ class TaskList {
       containertask.setAttribute('class', 'task-container');
       tasklabel.setAttribute('class', 'currenttask');
       taskinput.setAttribute('type', 'checkbox');
+      taskinput.setAttribute('class', 'check-box');
       taskdescription.setAttribute('type', 'input');
       taskdescription.setAttribute('class', 'taskfield');
       trashicon.setAttribute('class', 'fa-solid fa-trash-can delete-icon');
@@ -60,6 +63,10 @@ class TaskList {
 
   updateDescription(description, index) {
     this.tasklist[index].description = description.value;
+  }
+
+  updateStatus(index, value) {
+    this.tasklist[index].completed = value;
   }
 }
 export default TaskList;
