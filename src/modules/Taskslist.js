@@ -14,11 +14,14 @@ class TaskList {
   }
 
   readTasks(listtask = []) {
-    let index = 1;
-    listtask.tasklist.forEach((task) => {
-      this.addTask(task.description, task.completed, index);
-      index += 1;
-    });
+    console.log(listtask);
+      if(listtask !== null){
+      let index = 1;
+      listtask.tasklist.forEach((task) => {
+        this.addTask(task.description, task.completed, index);
+        index += 1;
+      });
+    }
   }
 
   loadTasks() {
