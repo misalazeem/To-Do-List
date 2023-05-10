@@ -14,6 +14,7 @@ class TaskList {
     });
     localStorage.setItem('tasklists', JSON.stringify(this.tasklist));
   }
+
   addTask(description, completed, index) {
     index = this.tasklist.length + 1;
     const Task = new Tasks(description, completed, index);
