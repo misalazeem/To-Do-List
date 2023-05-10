@@ -5,6 +5,15 @@ class TaskList {
     this.tasklist = object;
   }
 
+  clearCompleted() {
+    this.tasklist = this.tasklist.filter((task) => task.completed === false);
+    let count = 1;
+    this.tasklist.forEach((task) => {
+      task.index = count;
+      count += 1;
+    });
+    localStorage.setItem('tasklists', JSON.stringify(this.tasklist));
+  }
   addTask(description, completed, index) {
     index = this.tasklist.length + 1;
     const Task = new Tasks(description, completed, index);
