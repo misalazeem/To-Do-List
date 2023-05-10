@@ -1,8 +1,11 @@
 {
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.21.5",
     "css-loader": "^6.7.3",
     "express": "^4.18.2",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.1",
+    "jest": "^29.5.0",
     "style-loader": "^3.3.2",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
@@ -97,9 +100,10 @@
     "wildcard": "^2.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "start": "webpack serve --open",
     "server": "node server.js",
+    "deploy": "gh-pages -d dist",
     "build": "webpack"
   },
   "keywords": [],
