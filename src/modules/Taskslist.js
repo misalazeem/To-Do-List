@@ -6,15 +6,18 @@ class TaskList {
   }
 
   addTask(description, completed, index) {
+    index = this.tasklist.length + 1;
     const Task = new Tasks(description, completed, index);
     this.tasklist.push(Task);
-    const tasks = document.querySelector('.tasks');
+    localStorage.setItem('tasklists', JSON.stringify(this.tasklist));
+  /*  const tasks = document.querySelector('.tasks');
     tasks.innerHTML = '';
     this.loadTasks();
+  */
   }
 
   readTasks(listtask = []) {
-    if (listtask !== null) {
+    if (listtask !== null && listtask.length !== 0) {
       let index = 1;
       listtask.tasklist.forEach((task) => {
         this.addTask(task.description, task.completed, index);
@@ -23,42 +26,16 @@ class TaskList {
     }
   }
 
-  loadTasks() {
-    const tasks = document.querySelector('.tasks');
-    this.tasklist.forEach((task) => {
-      const containertask = document.createElement('div');
-      const tasklabel = document.createElement('div');
-      const taskinput = document.createElement('input');
-      const taskdescription = document.createElement('input');
-      const trashicon = document.createElement('i');
-      containertask.setAttribute('class', 'task-container');
-      tasklabel.setAttribute('class', 'currenttask');
-      taskinput.setAttribute('type', 'checkbox');
-      taskinput.setAttribute('class', 'check-box');
-      taskdescription.setAttribute('type', 'input');
-      taskdescription.setAttribute('class', 'taskfield');
-      trashicon.setAttribute('class', 'fa-solid fa-trash-can delete-icon');
-      trashicon.setAttribute('id', `removetask${task.index}`);
-      taskdescription.value = task.description;
-      taskinput.checked = task.completed;
-      tasklabel.appendChild(taskinput);
-      tasklabel.appendChild(taskdescription);
-      tasklabel.appendChild(trashicon);
-      containertask.appendChild(tasklabel);
-      tasks.appendChild(containertask);
-    });
-  }
-
   removeTask(removeindex) {
-    this.tasklist.splice(removeindex, 1);
-    let count = 1;
-    this.tasklist.forEach((task) => {
-      task.index = count;
-      count += 1;
-    });
-    const tasks = document.querySelector('.tasks');
-    tasks.innerHTML = '';
-    this.loadTasks();
+    if (this.tasklist[removeindex] != null) {
+      this.tasklist.splice(removeindex, 1);
+      let count = 1;
+      this.tasklist.forEach((task) => {
+        task.index = count;
+        count += 1;
+      });
+      localStorage.setItem('tasklists', JSON.stringify(this.tasklist));
+    }
   }
 
   updateDescription(description, index) {
