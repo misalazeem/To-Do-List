@@ -46,4 +46,15 @@ describe('TaskList Functions', () => {
       expect(global.localStorage.setItem).toBeCalledWith('tasklists', JSON.stringify(tasklist.tasklist));
     });
   });
+
+  describe('clearCompleted()', () => {
+    test('should remove completed tasks from tasklist', () => {
+      tasklist.addTask('task 1', true);
+      tasklist.addTask('task 2', false);
+      tasklist.addTask('task 3', true);
+      tasklist.clearCompleted();
+      expect(tasklist.tasklist).toEqual([{ description: 'task 2', completed: false, index: 1 }]);
+      expect(global.localStorage.setItem).toBeCalledWith('tasklists', JSON.stringify(tasklist.tasklist));
+    });
+  });
 });
