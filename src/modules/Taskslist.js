@@ -17,7 +17,7 @@ class TaskList {
   }
 
   readTasks(listtask = []) {
-    if (listtask !== null && listtask.length != 0) {
+    if (listtask !== null && listtask.length !== 0) {
       let index = 1;
       listtask.tasklist.forEach((task) => {
         this.addTask(task.description, task.completed, index);
@@ -27,7 +27,7 @@ class TaskList {
   }
 
   removeTask(removeindex) {
-    if(this.tasklist[removeindex] != null) {
+    if (this.tasklist[removeindex] != null) {
       this.tasklist.splice(removeindex, 1);
       let count = 1;
       this.tasklist.forEach((task) => {
@@ -35,7 +35,7 @@ class TaskList {
         count += 1;
       });
       localStorage.setItem('tasklists', JSON.stringify(this.tasklist));
-    }  
+    }
   }
 
   updateDescription(description, index) {

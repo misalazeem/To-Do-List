@@ -2,15 +2,6 @@ import './style.css';
 import TaskList from './modules/Taskslist.js';
 
 const tasklist = new TaskList();
-
-function onPageLoad() {
-  if (localStorage) {
-    const localStorageItem = localStorage.getItem('tasklists');
-    tasklist.readTasks(JSON.parse(localStorageItem));
-    loadTasks();
-  }
-}
-
 function loadTasks() {
   const tasks = document.querySelector('.tasks');
   tasks.innerHTML = '';
@@ -36,6 +27,14 @@ function loadTasks() {
     containertask.appendChild(tasklabel);
     tasks.appendChild(containertask);
   });
+}
+
+function onPageLoad() {
+  if (localStorage) {
+    const localStorageItem = localStorage.getItem('tasklists');
+    tasklist.readTasks(JSON.parse(localStorageItem));
+    loadTasks();
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

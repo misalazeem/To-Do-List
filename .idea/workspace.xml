@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1e0e95e-c2fe-44c3-81bf-0b3f8647a446" name="Changes" comment="" />
+    <list default="true" id="d1e0e95e-c2fe-44c3-81bf-0b3f8647a446" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/prettify.css" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/prettify.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Taskslist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Taskslist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/add-remove.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/add-remove.test.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +53,7 @@
       <updated>1683721436138</updated>
       <workItem from="1683721439661" duration="618000" />
       <workItem from="1683722537796" duration="1021000" />
+      <workItem from="1683723573258" duration="1553000" />
     </task>
     <servers />
   </component>
